@@ -7,6 +7,8 @@ import 'package:flutter_demo/pager/day2/layout_pager.dart';
 import 'package:flutter_demo/pager/day1/run_ball_pager.dart';
 import 'package:flutter_demo/pager/day2/list_pager.dart';
 import 'package:flutter_demo/pager/day2/text_pager.dart';
+import 'package:flutter_demo/pager/day3/image_pager.dart';
+import 'package:flutter_demo/pager/day3/widget_pager.dart';
 import 'package:flutter_demo/view/star_view.dart';
 
 void main() => runApp(MyApp());
@@ -27,10 +29,16 @@ class MyApp extends StatelessWidget {
 //      home: ClockPage(),
 //      home: TextPage(title: '文字游戏'),
 //      home: LayoutPage(title: '控件之间'),
-      home: ListPage(title: '我的列表'),
+//      home: ListPage(title: '我的列表'),
+//      home: ImagePage(title: '照片流'),
+        //注意一点：主页的Scaffold标签要让DefaultTabController包一下，否则会报错
+      home: new DefaultTabController(length: 4, child: WidgetPage(title:"风之控件"))
     );
   }
 }
+
+
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
