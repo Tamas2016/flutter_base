@@ -9,6 +9,7 @@ import 'package:flutter_demo/pager/day2/list_pager.dart';
 import 'package:flutter_demo/pager/day2/text_pager.dart';
 import 'package:flutter_demo/pager/day3/image_pager.dart';
 import 'package:flutter_demo/pager/day3/widget_pager.dart';
+import 'package:flutter_demo/pager/day4/layout_test_pager.dart';
 import 'package:flutter_demo/view/star_view.dart';
 
 void main() => runApp(MyApp());
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
 //      home: ListPage(title: '我的列表'),
 //      home: ImagePage(title: '照片流'),
         //注意一点：主页的Scaffold标签要让DefaultTabController包一下，否则会报错
-      home: new DefaultTabController(length: 4, child: WidgetPage(title:"风之控件"))
+//      home: new DefaultTabController(length: 4, child: WidgetPage(title:"风之控件"))
+      home: LayoutTestPage(title: 'DEMO'),
     );
   }
 }
