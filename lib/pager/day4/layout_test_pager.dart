@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/helper/layout_utils.dart';
 import 'package:flutter_demo/view/day4/layout_test_view.dart';
 
 class LayoutTestPage extends StatefulWidget {
@@ -24,7 +23,7 @@ class _LayoutTestState extends State<LayoutTestPage> {
 //        padding: EdgeInsets.all(5),
 //        child: rowLine2,
 //      ),
-    body:testList,
+      body: testList2,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         tooltip: 'Increment',
@@ -33,23 +32,37 @@ class _LayoutTestState extends State<LayoutTestPage> {
     );
   }
 
+
+  ///ListView.separated
+  var testList2 = ListView.separated(itemBuilder: (ctx,i){
+    return Column(
+      children: <Widget>[test4],
+    );
+  },
+      separatorBuilder: (ctx,i){
+    return Column(
+      children: <Widget>[
+
+        (i+1)%2==0?rowLine2:Container()
+      ],
+    );
+      }, itemCount: 40);
+
   //条目2
-  var testList = ListView.builder(itemBuilder:(BuildContext context,int index){
-    return Column(children: <Widget>[
-      test4,Divider(height: 1,)
-    ],);
-
-  },itemCount: 30,
+  var testList = ListView.builder(
+    itemBuilder: (BuildContext context, int index) {
+      return Column(
+        children: <Widget>[
+          test4,
+          Divider(
+            height: 1,
+          )
+        ],
+      );
+    },
+    itemCount: 30,
   );
-
-
-
-
-
-
-
 }
-
 
 var test4 = Card(
   child: Container(
@@ -58,7 +71,6 @@ var test4 = Card(
     height: 160,
     padding: EdgeInsets.all(10),
   ),
-
 );
 
 ///新级级别布局1
@@ -72,7 +84,6 @@ var test3 = Card(
         padding: EdgeInsets.all(5),
         child: rowLine3));
 
-
 ///入门级布局2：
 var rowLine2 = Row(
   children: <Widget>[
@@ -82,13 +93,12 @@ var rowLine2 = Row(
     ),
     Expanded(
         child: Padding(
-          padding: EdgeInsets.all(5),
-          child: centerInfo,
-        )),
+      padding: EdgeInsets.all(5),
+      child: centerInfo,
+    )),
     endInfo
   ],
 );
-
 
 ///入门级布局1：
 var rowLine = Row(
